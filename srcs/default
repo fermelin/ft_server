@@ -5,21 +5,17 @@ server {
 	return 301 https://$host$request_uri;
 }
 server {
-	
 	listen 443 ssl default_server;
 	listen [::]:443 ssl default_server;
 	
-#	ssl on;
-#	ssl_certificate 	/etc/ssl/certs/localhost.crt;
-#	ssl_certificate_key	/etc/ssl/private/localhost.key;
+	ssl on;
+	ssl_certificate 	/etc/ssl/certs/localhost.crt;
+	ssl_certificate_key	/etc/ssl/private/localhost.key;
 		 
 	root /var/www/html;
 	index index.html index.htm index.php;
 	 
 	server_name localhost;
-
-
-	
 	location / {
 		autoindex on;
 		try_files $uri $uri/ =404;
